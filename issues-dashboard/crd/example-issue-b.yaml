@@ -1,0 +1,19 @@
+apiVersion: issues.konflux.dev/v1beta1
+kind: Issue
+metadata:
+  name: test-issue-b
+  #  namespace: my-konflux-namespace
+  labels:
+    component.name: "app-component-b"
+spec:
+  title: "Failed to build Application component"
+  description: "Build failed"
+  severity: "major"
+  issueType: "build"
+  scope:
+    resourceType: "component"
+    resourceName: "build"
+    resourceNamespace: "my-workspace"
+  links:
+    - title: "Build Logs"
+      url: "https://logs.konflux.dev/build-456"

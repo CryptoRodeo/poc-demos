@@ -1,0 +1,71 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: issues.issues.konflux.dev
+spec:
+  group: issues.konflux.dev
+  names:
+    kind: Issue
+    plural: issues
+    singular: issue
+    shortNames:
+      - isu
+  scope: Namespaced
+  versions:
+    - name: v1beta1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          description: |
+            This resource describes an issue regarding Konflux-related components.
+          properties:
+            spec:
+              type: object
+              description: The properties that make up a Konflux-related issue.
+              properties:
+                title:
+                  type: string
+                description:
+                  type: string
+                severity:
+                  type: string
+                  enum: [critical, major, minor, info]
+                issueType:
+                  type: string
+                  enum: [build, test, release, dependency, pipeline]
+                scope:
+                  type: object
+                  properties:
+                    resourceType:
+                      type: string
+                      enum: [workspace, application, component, pipelinerun]
+                    resourceName:
+                      type: string
+                    resourceNamespace:
+                      type: string
+                relatedIssues:
+                  type: array
+                  items:
+                    type: string
+                links:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      title:
+                        type: string
+                      url:
+                        type: string
+            status:
+              type: object
+              description: The current status of this issue (active, resolved, acknolwedged).
+              properties:
+                state:
+                  type: string
+                  enum: [active, resolved, acknowledged]
+                resolvedTimestamp:
+                  type: string
+                detectedTimestamp:
+                  type: string

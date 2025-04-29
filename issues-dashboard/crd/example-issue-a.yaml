@@ -1,0 +1,19 @@
+apiVersion: issues.konflux.dev/v1beta1
+kind: Issue
+metadata:
+  name: test-issue-a
+  #  namespace: my-konflux-namespace
+  labels:
+    component.name: "app-component-a"
+spec:
+  title: "Failed test in Application component"
+  description: "Unit tests are failing"
+  severity: "major"
+  issueType: "test"
+  scope:
+    resourceType: "component"
+    resourceName: "unit test"
+    resourceNamespace: "my-workspace"
+  links:
+    - title: "Test Logs"
+      url: "https://logs.konflux.dev/test-run-123"
