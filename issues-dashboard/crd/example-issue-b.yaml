@@ -4,7 +4,7 @@ metadata:
   name: test-issue-b
   #  namespace: my-konflux-namespace
   labels:
-    component.name: "app-component-b"
+    component_name: "app-component-b"
 spec:
   title: "Failed to build Application component"
   description: "Build failed"
@@ -12,8 +12,8 @@ spec:
   issueType: "build"
   scope:
     resourceType: "component"
-    resourceName: "build"
-    resourceNamespace: "my-workspace"
+    resourceName: "Build"
+    resourceNamespace: "demo"
   links:
     - title: "Build Logs"
       url: "https://logs.konflux.dev/build-456"

@@ -4,7 +4,7 @@ metadata:
   name: test-issue-a
   #  namespace: my-konflux-namespace
   labels:
-    component.name: "app-component-a"
+    component_name: "app-component-a"
 spec:
   title: "Failed test in Application component"
   description: "Unit tests are failing"
@@ -12,8 +12,8 @@ spec:
   issueType: "test"
   scope:
     resourceType: "component"
-    resourceName: "unit test"
-    resourceNamespace: "my-workspace"
+    resourceName: "UnitTest"
+    resourceNamespace: "bramos"
   links:
     - title: "Test Logs"
       url: "https://logs.konflux.dev/test-run-123"
